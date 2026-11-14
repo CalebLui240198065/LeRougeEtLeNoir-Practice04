@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.rougenoir.app.R
 import com.rougenoir.app.data.Prefs
+import com.rougenoir.app.game.RoundOutcome
+import com.rougenoir.app.game.RoundResult
 import com.rougenoir.app.game.TicTacToeEngine
 import com.rougenoir.app.ui.view.TicTacToeBoardView
 import com.rougenoir.app.util.Feedback
@@ -30,6 +32,7 @@ class TicTacToeActivity : BaseActivity(), TicTacToeBoardView.OnCellClickListener
     private var rivalIsArmy = true
     private var aiThinking = false
     private var recorded = false
+    private var difficulty = Prefs.Difficulty.ADVOCATE.level
     private var delayRunnable: Runnable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,6 +87,7 @@ class TicTacToeActivity : BaseActivity(), TicTacToeBoardView.OnCellClickListener
         delayRunnable = null
         aiThinking = false
         recorded = false
+        difficulty = Prefs.difficulty(this).level
         engine.reset()
         updateRivalChips()
         updateScore()
@@ -122,7 +126,7 @@ class TicTacToeActivity : BaseActivity(), TicTacToeBoardView.OnCellClickListener
         aiThinking = true
         status.text = getString(R.string.ttt_ai_turn, rivalName())
         renderBoard()
-        val level = Prefs.difficulty(this).level
+        val level = difficulty
         val delay = when (level) {
             0 -> 420L
             1 -> 520L
@@ -158,23 +162,28 @@ class TicTacToeActivity : BaseActivity(), TicTacToeBoardView.OnCellClickListener
         if (recorded) return
         recorded = true
         aiThinking = false
-        when (engine.winner) {
+        val outcome = when (engine.winner) {
             TicTacToeEngine.TALENT -> {
                 Prefs.recordTttWin(this)
                 status.setText(R.string.ttt_win)
                 Feedback.win(this)
+                RoundOutcome.WIN
             }
             TicTacToeEngine.RIVAL -> {
                 Prefs.recordTttLoss(this)
                 status.text = getString(R.string.ttt_lose, rivalName())
                 Feedback.error(this)
+                RoundOutcome.LOSS
             }
             else -> {
                 Prefs.recordTttDraw(this)
                 status.setText(R.string.ttt_draw)
                 Feedback.error(this)
+                RoundOutcome.DRAW
             }
         }
+        val moveCount = engine.cells.count { it != TicTacToeEngine.EMPTY }
+        recordCompletedRound(RoundResult.TicTacToe(outcome, rivalIsArmy, difficulty, moveCount))
         updateScore()
         renderBoard()
     }

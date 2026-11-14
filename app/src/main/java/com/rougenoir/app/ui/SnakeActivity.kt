@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.rougenoir.app.R
 import com.rougenoir.app.data.Prefs
+import com.rougenoir.app.game.RoundResult
+import com.rougenoir.app.game.SnakeEnding
 import com.rougenoir.app.ui.view.SnakeView
 import com.rougenoir.app.util.Feedback
 
@@ -18,13 +20,15 @@ class SnakeActivity : BaseActivity(), SnakeView.Listener {
     private lateinit var bestView: TextView
     private lateinit var statusView: TextView
     private lateinit var actionButton: AppCompatButton
+    private var difficulty = Prefs.Difficulty.ADVOCATE.level
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_snake)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         bindViews()
-        snakeView.setDifficulty(Prefs.difficulty(this).level)
+        difficulty = Prefs.difficulty(this).level
+        snakeView.setDifficulty(difficulty)
         snakeView.listener = this
         scoreView.text = "0"
         bestView.text = Prefs.snakeBest(this).toString()
@@ -94,7 +98,11 @@ class SnakeActivity : BaseActivity(), SnakeView.Listener {
                 SnakeView.State.READY -> R.string.snake_ready
                 SnakeView.State.RUNNING -> R.string.snake_running
                 SnakeView.State.PAUSED -> R.string.snake_paused
-                SnakeView.State.OVER -> R.string.snake_game_over
+                SnakeView.State.OVER -> if (snakeView.ending == SnakeEnding.BOARD_FILLED) {
+                    R.string.snake_board_filled
+                } else {
+                    R.string.snake_game_over
+                }
             }
         )
         actionButton.setText(
@@ -107,7 +115,9 @@ class SnakeActivity : BaseActivity(), SnakeView.Listener {
         )
     }
 
-    override fun onGameOver(score: Int): Boolean {
+    override fun onGameOver(score: Int, ending: SnakeEnding): Boolean {
+        recordCompletedRound(RoundResult.Snake(score, ending, difficulty))
+        if (ending == SnakeEnding.BOARD_FILLED) Feedback.win(this)
         val isRecord = Prefs.recordSnakeScore(this, score)
         bestView.text = Prefs.snakeBest(this).toString()
         return isRecord

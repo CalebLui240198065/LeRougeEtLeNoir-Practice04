@@ -211,16 +211,34 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- History sits with the game choices because it covers every game. -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="22dp"
-                app:fontFamily="@font/nunito_bold"
-                android:letterSpacing="0.16"
-                android:text="@string/menu_section_games"
-                android:textColor="@color/brown"
-                android:textSize="9sp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/menu_section_games"
+                    android:textAppearance="@style/TextAppearance.RougeNoir.Eyebrow" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/menuRoundHistory"
+                    style="@style/Widget.RougeNoir.Button.Outline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minHeight="48dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="@string/history_title" />
+            </LinearLayout>
 
             <!-- The new Bingo game sits above the original practice games. -->
             <LinearLayout

@@ -13,6 +13,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.rougenoir.app.R
+import com.rougenoir.app.game.SnakeEnding
 import kotlin.math.abs
 import kotlin.math.min
 import kotlin.random.Random
@@ -35,13 +36,15 @@ class SnakeView @JvmOverloads constructor(
     interface Listener {
         fun onScoreChanged(score: Int)
         fun onStateChanged(state: State)
-        fun onGameOver(score: Int): Boolean
+        fun onGameOver(score: Int, ending: SnakeEnding): Boolean
         fun onEat()
         fun onCrash()
     }
 
     var listener: Listener? = null
     var state: State = State.READY
+        private set
+    var ending: SnakeEnding? = null
         private set
 
     private var cols = 17
@@ -196,6 +199,7 @@ class SnakeView @JvmOverloads constructor(
         body.clear()
         score = 0
         newRecord = false
+        ending = null
         direction = Direction.RIGHT
         nextDirection = Direction.RIGHT
         tickMs = baseTick()
@@ -253,12 +257,12 @@ class SnakeView @JvmOverloads constructor(
         val col = head % cols + direction.dx
         val row = head / cols + direction.dy
         if (col !in 0 until cols || row !in 0 until rows) {
-            endGame()
+            endGame(SnakeEnding.WALL)
             return
         }
         val newHead = row * cols + col
         if (body.contains(newHead)) {
-            endGame()
+            endGame(SnakeEnding.TAIL)
             return
         }
         body.addFirst(newHead)
@@ -274,11 +278,12 @@ class SnakeView @JvmOverloads constructor(
         invalidate()
     }
 
-    private fun endGame() {
+    private fun endGame(reason: SnakeEnding) {
+        ending = reason
         state = State.OVER
         handler.removeCallbacks(tick)
-        listener?.onCrash()
-        newRecord = listener?.onGameOver(score) ?: false
+        if (reason != SnakeEnding.BOARD_FILLED) listener?.onCrash()
+        newRecord = listener?.onGameOver(score, reason) ?: false
         listener?.onStateChanged(state)
         invalidate()
     }
@@ -288,7 +293,7 @@ class SnakeView @JvmOverloads constructor(
         val occupied = body.toHashSet()
         val free = (0 until cols * rows).filter { it !in occupied }
         if (free.isEmpty()) {
-            endGame()
+            endGame(SnakeEnding.BOARD_FILLED)
             return
         }
         foodIndex = free[random.nextInt(free.size)]
@@ -408,8 +413,12 @@ class SnakeView @JvmOverloads constructor(
             )
             State.OVER -> drawOverlay(
                 canvas,
-                eyebrow = context.getString(R.string.snake_over_eyebrow),
-                title = context.getString(R.string.snake_over_title),
+                eyebrow = context.getString(
+                    if (ending == SnakeEnding.BOARD_FILLED) R.string.history_won else R.string.snake_over_eyebrow
+                ),
+                title = context.getString(
+                    if (ending == SnakeEnding.BOARD_FILLED) R.string.snake_board_filled else R.string.snake_over_title
+                ),
                 body = if (newRecord) {
                     context.getString(R.string.snake_over_record, score)
                 } else {

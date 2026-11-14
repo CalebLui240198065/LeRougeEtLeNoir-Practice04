@@ -43,14 +43,14 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
-        <!-- The Salon opens Bingo internally after sign-in. Its history uses the same account. -->
+        <!-- The Salon opens Bingo and round history internally after sign-in. -->
         <activity
             android:name=".ui.BingoActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.BingoHistoryActivity"
+            android:name=".ui.RoundHistoryActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 

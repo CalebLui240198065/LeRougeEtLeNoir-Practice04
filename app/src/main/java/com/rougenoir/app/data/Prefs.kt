@@ -8,7 +8,7 @@ import java.security.SecureRandom
 
 /**
  * Stores the local demo identity, sign-in state, settings, and the original games'
- * scores in one SharedPreferences file. Completed Bingo rounds are kept in SQLite.
+ * scores in one SharedPreferences file. Individual completed rounds are kept in SQLite.
  */
 object Prefs {
 

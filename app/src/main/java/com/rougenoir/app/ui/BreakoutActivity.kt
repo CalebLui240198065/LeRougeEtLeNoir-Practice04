@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.rougenoir.app.R
 import com.rougenoir.app.data.Prefs
+import com.rougenoir.app.game.RoundOutcome
+import com.rougenoir.app.game.RoundResult
 import com.rougenoir.app.ui.view.BreakoutView
 import com.rougenoir.app.util.Feedback
 
@@ -18,13 +20,15 @@ class BreakoutActivity : BaseActivity(), BreakoutView.Listener {
     private lateinit var livesView: TextView
     private lateinit var statusView: TextView
     private lateinit var pauseButton: AppCompatButton
+    private var difficulty = Prefs.Difficulty.ADVOCATE.level
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_breakout)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         bindViews()
-        breakoutView.setDifficulty(Prefs.difficulty(this).level)
+        difficulty = Prefs.difficulty(this).level
+        breakoutView.setDifficulty(difficulty)
         breakoutView.listener = this
         breakoutView.newGame()
         updateState(BreakoutView.State.READY)
@@ -104,6 +108,8 @@ class BreakoutActivity : BaseActivity(), BreakoutView.Listener {
     }
 
     override fun onGameOver(score: Int, won: Boolean): Boolean {
+        val outcome = if (won) RoundOutcome.WIN else RoundOutcome.LOSS
+        recordCompletedRound(RoundResult.Breakout(outcome, score, breakoutView.lives, difficulty))
         return Prefs.recordBreakoutScore(this, score)
     }
 

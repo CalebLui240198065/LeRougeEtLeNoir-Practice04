@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- One saved result in the history list, with winning numbers in board order. -->
+<!-- Every round shows the game, outcome, game-specific facts, and completion metadata. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,23 +8,30 @@
     android:padding="14dp">
 
     <TextView
-        android:id="@+id/bingoHistoryRound"
+        android:id="@+id/historyRoundTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.RougeNoir.Label"
         android:textColor="@color/red_dark" />
 
     <TextView
-        android:id="@+id/bingoHistoryNumbers"
+        android:id="@+id/historyOutcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:textAppearance="@style/TextAppearance.RougeNoir.Title" />
 
     <TextView
-        android:id="@+id/bingoHistoryDetails"
+        android:id="@+id/historyRoundDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textAppearance="@style/TextAppearance.RougeNoir.BodySmall" />
+        android:layout_marginTop="2dp"
+        android:textAppearance="@style/TextAppearance.RougeNoir.Body" />
+
+    <TextView
+        android:id="@+id/historyRoundMeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textAppearance="@style/TextAppearance.RougeNoir.Caption" />
 </LinearLayout>

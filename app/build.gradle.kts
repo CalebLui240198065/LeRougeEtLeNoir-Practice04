@@ -10,12 +10,12 @@ android {
     }
 
     defaultConfig {
-        // A new install ID lets the two practice projects coexist on the same device.
+        // Keep the install ID from the first published build so its local data upgrades in place.
         applicationId = "com.rougenoir.app.practice05"
         minSdk = 24
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

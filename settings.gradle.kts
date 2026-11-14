@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LeRougeEtLeNoir-Practice05"
+rootProject.name = "LeRougeEtLeNoir-Practice04"
 include(":app")

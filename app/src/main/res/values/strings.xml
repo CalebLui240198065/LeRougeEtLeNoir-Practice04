@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Le Rouge et le Noir · Practice 05</string>
+    <string name="app_name">Le Rouge et le Noir · Practice 04</string>
     <string name="app_name_short">Rouge &amp; Noir</string>
     <string name="back">Back</string>
     <string name="close">Close</string>
@@ -67,7 +67,6 @@
     <string name="bingo_title">Bingo</string>
     <string name="bingo_menu_description">Mark five in a line.</string>
     <string name="bingo_menu_emblem" translatable="false">5 × 5</string>
-    <string name="bingo_history">Round history</string>
     <string name="bingo_latest_draw">LATEST DRAW</string>
     <string name="bingo_draw_placeholder" translatable="false">—</string>
     <string name="bingo_progress">%1$d of %2$d drawn</string>
@@ -88,12 +87,30 @@
     <string name="bingo_saving_action">Saving round…</string>
     <string name="bingo_save_failed">Bingo! The round could not be saved. Try again.</string>
     <string name="bingo_retry">Retry save</string>
-    <string name="bingo_history_loading">Loading your rounds…</string>
-    <string name="bingo_history_empty">Finish a Bingo round to see it here.</string>
-    <string name="bingo_history_error">Your rounds could not be loaded.</string>
-    <string name="bingo_history_retry">Try again</string>
-    <string name="bingo_round_number">Round %1$d</string>
-    <string name="bingo_history_details">@%1$s · %2$s</string>
+    <!-- History -->
+    <string name="history_title">Round history</string>
+    <string name="history_game_filter">Game</string>
+    <string name="history_all_games">All games</string>
+    <string name="history_tic_tac_toe">Tic Tac Toe</string>
+    <string name="history_snake">Snake</string>
+    <string name="history_breakout">Breakout</string>
+    <string name="history_loading">Loading your rounds…</string>
+    <string name="history_empty">No completed rounds for this selection yet.</string>
+    <string name="history_load_error">Your rounds could not be loaded.</string>
+    <string name="history_save_failed">This round could not be saved.</string>
+    <string name="history_retry">Try again</string>
+    <string name="history_round_title">%1$s · Round %2$d</string>
+    <string name="history_round_meta">@%1$s · %2$s</string>
+    <string name="history_won">Won</string>
+    <string name="history_lost">Lost</string>
+    <string name="history_draw">Draw</string>
+    <string name="history_bingo_numbers">Winning numbers: %1$s</string>
+    <string name="history_bingo_round">%1$s\n%2$d draws</string>
+    <string name="history_duel_round">Rival: %1$s · %2$d moves\nDifficulty: %3$s</string>
+    <string name="history_snake_round">Score: %1$d · %2$s\nDifficulty: %3$s</string>
+    <string name="history_snake_wall">Hit a wall</string>
+    <string name="history_snake_tail">Hit its own tail</string>
+    <string name="history_breakout_round">Score: %1$d · Lives left: %2$d\nDifficulty: %3$s</string>
 
     <!-- Tic tac toe -->
     <string name="ttt_eyebrow">SALON GAME · TIC-TAC-TOE</string>
@@ -132,6 +149,7 @@
     <string name="snake_paused">The salon waits.</string>
     <string name="snake_running">Gather red and black favors. Avoid the walls and your own trail.</string>
     <string name="snake_game_over">Caught between the camps.</string>
+    <string name="snake_board_filled">Board filled</string>
     <string name="snake_board_description">Snake game board</string>
     <string name="snake_new_record">A new record of favors.</string>
     <string name="snake_control_hint">SWIPE THE FLOOR OR USE THE COMPASS</string>
@@ -201,7 +219,7 @@
     <string name="settings_sign_out_confirm">LEAVE</string>
     <string name="settings_password_eyebrow">A PRIVATE MATTER</string>
     <string name="settings_confirm_eyebrow">A DECISION</string>
-    <string name="settings_version">A SALON GAME · VERSION 1.0</string>
+    <string name="settings_version">PRACTICE 04 · VERSION 1.1</string>
     <string name="settings_password_title">Change your key</string>
     <string name="settings_password_message">Choose a new password for your account.</string>
     <string name="settings_current_password">CURRENT PASSWORD</string>

@@ -1,6 +1,6 @@
-# Le Rouge et le Noir · Vibe Coding Practice 05
+# Le Rouge et le Noir · Vibe Coding Practice 04
 
-This Android project builds on Practice 04's *Le Rouge et le Noir* game collection. It adds a playable Bingo card and a SQLite history of completed rounds. The original login, settings, Tic Tac Toe, Snake, and Breakout are available from the same salon.
+This Android project is a clean copy of the original *Le Rouge et le Noir* game collection for Vibe Coding Practice 04. It adds a playable Bingo card and saves completed rounds for all four games in SQLite. The Salon leads to Bingo, Tic Tac Toe, Snake, Breakout, and The Study settings.
 
 ## Run the app
 
@@ -14,27 +14,40 @@ Build and test from Windows PowerShell with the Android SDK configured:
 .\gradlew.bat :app:assembleDebug :app:testDebugUnitTest
 ```
 
-The APK is generated at `app/build/outputs/apk/debug/app-debug.apk`. This practice uses application ID `com.rougenoir.app.practice05` so it can be installed alongside Practice 04 with its own local data.
+The APK is generated at `app/build/outputs/apk/debug/app-debug.apk`. The app uses the same installation ID as the first published build so installing this update preserves local data.
 
 ## Play Bingo
 
 1. Choose **Bingo** from **The Salon**. The 5 × 5 card uses the numbers 1 through 25, including a numbered center.
 2. Tap **Draw number**, then tap any outlined square to mark it. Each number is drawn once per card. Previously drawn squares can still be marked.
 3. Complete a row, column, or diagonal. The five winning squares turn gold and the app saves the round. When one tap completes several lines, the app records the first completed row, then checks columns, then diagonals.
-4. Choose **New round** for a fresh card or **Round history** to view saved rounds, most recent first.
+4. Choose **New round** for a fresh card or **Round history** to view your Bingo results.
 
-## SQLite round history
+## View round history
 
-The app creates `salon_bingo.db` in private app storage. The `bingo_rounds` table contains:
+Open **Round history** from **The Salon** and choose **All games** or an individual game. Each completed round shows the player, the round number, the outcome, and the device time. Round numbers start at 1 for each player and game. Leaving or restarting an unfinished game does not create a record.
+
+| Game | Details saved |
+| --- | --- |
+| Bingo | Five winning numbers in board order and number of draws |
+| Tic Tac Toe | Win, loss, or draw, rival, difficulty, and number of moves |
+| Snake | Score, ending reason, and difficulty |
+| Breakout | Win or loss, score, lives left, and difficulty |
+
+## SQLite schema
+
+Android's `SQLiteOpenHelper` stores the records in the `game_rounds` table in private app storage. The file keeps its original name, `salon_bingo.db`, so the version 2 migration can preserve earlier Bingo results. Earlier Bingo rounds have winning numbers and a completion time. Draw counts are available for new rounds.
 
 | Column | Value |
 | --- | --- |
 | `username` | Username of the signed-in player |
-| `round_number` | Completed round number, starting at 1 for each username |
-| `number_1` through `number_5` | The five winning numbers in board order |
-| `system_time` | Time of the winning mark from the device clock, stored as Unix epoch milliseconds and displayed in local time |
-| `round_id` | Internal ID used to identify a save retry for the same round |
+| `game_type` | Stable name of the game |
+| `round_number` | Completed round number for the player and game |
+| `system_time` | Device time on completion, stored as Unix epoch milliseconds and displayed in local time |
+| `outcome` | Win, loss, or draw |
+| `details_json` | Game-specific facts encoded as JSON text |
+| `round_id` | Unique ID that makes a retried save safe |
 
-`BingoGame.kt` handles calls, marking, and win detection. `BingoDatabase.kt` uses Android's `SQLiteOpenHelper` and saves round numbering and results in one transaction. `BingoActivity.kt` and `BingoHistoryActivity.kt` present the game and history. Profile settings and the original game scores use `SharedPreferences`.
+`RoundResult.kt` describes each game's result. `RoundDatabase.kt` assigns numbers and writes each completed result in one transaction. `RoundHistoryActivity.kt` reads the records for the signed-in user. Profile settings and the original high-score summaries use `SharedPreferences`.
 
-The unit tests cover duplicate calls, invalid marks, wins in both directions and diagonals, restoration, and the original Tic Tac Toe rules. The bundled fonts retain their OFL notices in `app/src/main/assets/licenses`.
+The unit tests cover Bingo calls, valid marks, winning lines, restoration, and the original Tic Tac Toe rules. The bundled fonts retain their OFL notices in `app/src/main/assets/licenses`.

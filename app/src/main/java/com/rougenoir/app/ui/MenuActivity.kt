@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.AppCompatButton
 import com.rougenoir.app.R
 import com.rougenoir.app.data.Prefs
 import com.rougenoir.app.util.Feedback
@@ -54,6 +55,10 @@ class MenuActivity : BaseActivity() {
     }
 
     private fun wireClicks() {
+        findViewById<AppCompatButton>(R.id.menuRoundHistory).setOnClickListener {
+            Feedback.tap(this)
+            startActivity(RoundHistoryActivity.intent(this))
+        }
         findViewById<LinearLayout>(R.id.gameBingoCard).setOnClickListener {
             Feedback.tap(this)
             startActivity(Intent(this, BingoActivity::class.java))

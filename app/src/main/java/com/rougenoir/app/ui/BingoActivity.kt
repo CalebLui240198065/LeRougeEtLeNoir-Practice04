@@ -1,6 +1,5 @@
 package com.rougenoir.app.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -10,6 +9,8 @@ import com.rougenoir.app.R
 import com.rougenoir.app.RougeNoirApp
 import com.rougenoir.app.data.Prefs
 import com.rougenoir.app.game.BingoGame
+import com.rougenoir.app.game.GameType
+import com.rougenoir.app.game.RoundResult
 import com.rougenoir.app.util.Feedback
 import java.util.UUID
 
@@ -52,7 +53,7 @@ class BingoActivity : BaseActivity() {
         }
         findViewById<AppCompatButton>(R.id.bingoHistoryButton).setOnClickListener {
             Feedback.tap(this)
-            startActivity(Intent(this, BingoHistoryActivity::class.java))
+            startActivity(RoundHistoryActivity.intent(this, GameType.BINGO))
         }
         action.setOnClickListener {
             Feedback.tap(this)
@@ -150,8 +151,11 @@ class BingoActivity : BaseActivity() {
         saving = true
         render()
 
-        (application as RougeNoirApp).bingoDatabase.saveRound(
-            roundId, username, line.map { game.card[it] }, completedAt
+        (application as RougeNoirApp).roundDatabase.saveRound(
+            roundId,
+            username,
+            RoundResult.Bingo(line.map { game.card[it] }, game.calledCount),
+            completedAt
         ) { result ->
             // SQLite can finish while this activity is being replaced or closed.
             if (isFinishing || isDestroyed) return@saveRound
