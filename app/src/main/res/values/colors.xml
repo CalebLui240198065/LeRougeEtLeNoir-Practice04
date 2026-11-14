@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core palette: the red of the Army, the black of the Church, the brown of talent. -->
+    <color name="ink">#1C1715</color>
+    <color name="ink_soft">#2C2521</color>
+    <color name="ink_muted">#4B3F37</color>
+    <color name="black_soft">#241F1C</color>
+    <color name="red">#A7292F</color>
+    <color name="red_dark">#781C22</color>
+    <color name="red_bright">#C74747</color>
+    <color name="red_pale">#F5DFDC</color>
+    <color name="brown">#8A5A3B</color>
+    <color name="brown_dark">#5B3825</color>
+    <color name="brown_light">#C49A76</color>
+    <color name="brown_pale">#E8D2BB</color>
+    <color name="parchment">#F4E9D8</color>
+    <color name="parchment_deep">#EAD8C0</color>
+    <color name="cream">#FFFAF1</color>
+    <color name="gold">#D7A64A</color>
+    <color name="gold_light">#F0D7A6</color>
+    <color name="line">#DECBB3</color>
+    <color name="line_dark">#4B4038</color>
+    <color name="muted">#79695C</color>
+    <color name="muted_light">#A59789</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="scrim">#B31C1715</color>
+    <color name="scrim_light">#661C1715</color>
+    <color name="gold_20">#33D7A64A</color>
+    <color name="parchment_20">#33FFFAF1</color>
+    <color name="parchment_10">#1AFFFAF1</color>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This variant opts out of automatic darkening to preserve the salon palette. -->
+<resources>
+    <style name="Theme.RougeNoir" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/ink</item>
+        <item name="colorAccent">@color/brown</item>
+        <item name="android:windowBackground">@drawable/bg_paper</item>
+        <item name="android:colorBackground">@color/parchment</item>
+        <item name="android:statusBarColor">@color/ink</item>
+        <item name="android:navigationBarColor">@color/ink</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="fontFamily">@font/nunito_regular</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:colorEdgeEffect">@color/brown</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The scrollable login form keeps its actions reachable when the keyboard appears. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ink">
+
+    <ScrollView
+        android:id="@+id/contentRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_paper"
+        android:clipToPadding="true"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="238dp"
+                android:background="@drawable/bg_header">
+
+                <View
+                    android:layout_width="154dp"
+                    android:layout_height="154dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:alpha="0.18"
+                    android:background="@drawable/bg_dot_red"
+                    android:translationX="38dp" />
+
+                <View
+                    android:layout_width="74dp"
+                    android:layout_height="74dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="12dp"
+                    android:alpha="0.10"
+                    android:background="@drawable/bg_dot_brown" />
+
+                <ImageView
+                    android:layout_width="132dp"
+                    android:layout_height="154dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="10dp"
+                    android:contentDescription="@string/content_description_crest"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/hero_crest" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingTop="18dp"
+                    android:paddingEnd="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/nunito_bold"
+                        android:letterSpacing="0.2"
+                        android:text="@string/login_eyebrow"
+                        android:textColor="@color/gold_light"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        app:fontFamily="@font/cormorant_semibold"
+                        android:includeFontPadding="false"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingMultiplier="0.88"
+                        android:text="@string/login_title_rouge"
+                        android:textColor="@color/red_bright"
+                        android:textSize="43sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/cormorant_semibold"
+                        android:includeFontPadding="false"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingMultiplier="0.88"
+                        android:text="@string/login_title_noir"
+                        android:textColor="@color/cream"
+                        android:textSize="39sp" />
+
+                    <View
+                        android:layout_width="38dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/gold" />
+
+                    <TextView
+                        android:layout_width="214dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        app:fontFamily="@font/nunito_regular"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/login_subtitle"
+                        android:textColor="@color/parchment"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/nunito_bold"
+                    android:letterSpacing="0.16"
+                    android:text="@string/login_card_eyebrow"
+                    android:textColor="@color/red"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:fontFamily="@font/cormorant_semibold"
+                    android:text="@string/login_card_title"
+                    android:textColor="@color/ink"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    app:fontFamily="@font/nunito_regular"
+                    android:text="@string/login_card_subtitle"
+                    android:textColor="@color/muted"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    app:fontFamily="@font/nunito_bold"
+                    android:labelFor="@id/usernameInput"
+                    android:letterSpacing="0.12"
+                    android:text="@string/login_name_label"
+                    android:textColor="@color/ink"
+                    android:textSize="9sp" />
+
+                <EditText
+                    android:id="@+id/usernameInput"
+                    style="@style/Widget.RougeNoir.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="7dp"
+                    android:autofillHints="username"
+                    android:hint="@string/login_username_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="textNoSuggestions"
+                    android:maxLength="32" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:fontFamily="@font/nunito_bold"
+                    android:labelFor="@id/passwordInput"
+                    android:letterSpacing="0.12"
+                    android:text="@string/login_password_label"
+                    android:textColor="@color/ink"
+                    android:textSize="9sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="5dp">
+
+                    <EditText
+                        android:id="@+id/passwordInput"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:autofillHints="password"
+                        android:background="@null"
+                        app:fontFamily="@font/nunito_semibold"
+                        android:hint="@string/login_password_hint"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/ink"
+                        android:textColorHint="@color/muted_light"
+                        android:textCursorDrawable="@drawable/cursor_brown"
+                        android:textSize="15sp" />
+
+                    <ImageButton
+                        android:id="@+id/passwordToggle"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/show_password"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_eye"
+                        app:tint="@color/muted" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/rememberCheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:buttonTint="@color/brown"
+                    app:fontFamily="@font/nunito_regular"
+                    android:minHeight="32dp"
+                    android:text="@string/login_remember"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/errorText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:fontFamily="@font/nunito_semibold"
+                    android:lineSpacingExtra="1dp"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/loginButton"
+                    style="@style/Widget.RougeNoir.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/login_button" />
+
+                <TextView
+                    android:id="@+id/demoButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    app:fontFamily="@font/nunito_bold"
+                    android:gravity="center"
+                    android:letterSpacing="0.08"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/login_demo"
+                    android:textColor="@color/brown"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/nunito_regular"
+                    android:gravity="center"
+                    android:text="@string/login_demo_hint"
+                    android:textColor="@color/muted_light"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/cormorant_semibold"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/login_footer_quote"
+                    android:textColor="@color/brown"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:fontFamily="@font/nunito_regular"
+                    android:text="@string/login_footer_source"
+                    android:textColor="@color/muted_light"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

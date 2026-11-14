@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The darker track distinguishes an enabled Study switch. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/brown_light" android:state_checked="true" />
+    <item android:color="@color/parchment_deep" />
+</selector>

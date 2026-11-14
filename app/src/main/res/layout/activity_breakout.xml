@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BreakoutView handles touch and physics while this screen presents score, lives, and pause. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ink">
+
+    <LinearLayout
+        android:id="@+id/contentRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_paper"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_header"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="13dp">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                style="@style/Widget.RougeNoir.IconButton.Dark"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:contentDescription="@string/back"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/cream" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/nunito_bold"
+                    android:letterSpacing="0.16"
+                    android:text="@string/breakout_eyebrow"
+                    android:textColor="@color/gold_light"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/cormorant_semibold"
+                    android:includeFontPadding="false"
+                    android:text="@string/breakout_title"
+                    android:textColor="@color/cream"
+                    android:textSize="33sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/nunito_regular"
+                    android:text="@string/breakout_subtitle"
+                    android:textColor="@color/parchment"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:contentDescription="@string/content_description_breakout_art"
+                android:scaleType="fitCenter"
+                android:src="@drawable/art_breakout" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/nunito_bold"
+                        android:letterSpacing="0.1"
+                        android:text="@string/breakout_score_label"
+                        android:textColor="@color/brown"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/breakoutScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        app:fontFamily="@font/cormorant_bold"
+                        android:text="0"
+                        android:textColor="@color/ink"
+                        android:textSize="27sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/nunito_bold"
+                        android:letterSpacing="0.1"
+                        android:text="@string/breakout_lives_label"
+                        android:textColor="@color/muted"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/breakoutLives"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        app:fontFamily="@font/cormorant_bold"
+                        android:text="III"
+                        android:textColor="@color/red"
+                        android:textSize="23sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/breakoutStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fontFamily="@font/nunito_regular"
+                android:lineSpacingExtra="1dp"
+                android:maxLines="2"
+                android:text="@string/breakout_ready"
+                android:textColor="@color/muted"
+                android:textSize="10sp" />
+
+            <com.rougenoir.app.ui.view.BreakoutView
+                android:id="@+id/breakoutView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/breakout_board_description"
+                android:minHeight="240dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:letterSpacing="0.08"
+                android:text="@string/breakout_hint"
+                android:textColor="@color/brown"
+                android:textSize="8sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/newSiegeButton"
+                    style="@style/Widget.RougeNoir.Button.Outline"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/breakout_new_siege"
+                    android:textSize="10sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/breakoutPauseButton"
+                    style="@style/Widget.RougeNoir.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/breakout_pause"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

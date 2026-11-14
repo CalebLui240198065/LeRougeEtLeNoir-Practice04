@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pin the header above the scrolling list of completed rounds. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ink">
+
+    <LinearLayout
+        android:id="@+id/contentRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_paper"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_header"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                style="@style/Widget.RougeNoir.IconButton.Dark"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/cream" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="@string/bingo_history"
+                android:textAppearance="@style/TextAppearance.RougeNoir.DisplaySmall"
+                android:textColor="@color/cream" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bingoHistoryMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityLiveRegion="polite"
+            android:padding="20dp"
+            android:text="@string/bingo_history_loading"
+            android:textAppearance="@style/TextAppearance.RougeNoir.Body" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bingoHistoryRetry"
+            style="@style/Widget.RougeNoir.Button.Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/bingo_history_retry"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/bingoHistoryList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10dp"
+            android:padding="18dp" />
+    </LinearLayout>
+</FrameLayout>

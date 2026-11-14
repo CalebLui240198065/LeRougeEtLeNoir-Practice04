@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Use cream text on the selected Army chip and its faction red in the resting state. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:color="@color/cream" />
+    <item android:color="@color/red" />
+</selector>

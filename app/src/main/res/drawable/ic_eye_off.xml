@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Crossed eye for the control that hides a visible password. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/ink"
+        android:pathData="M12,6.5c2.76,0 5,2.24 5,5 0,0.51 -0.1,1 -0.24,1.46l3.06,3.06c1.39,-1.23 2.49,-2.77 3.18,-4.53C21.27,7.61 17,4.5 12,4.5c-1.27,0 -2.49,0.2 -3.64,0.57l2.17,2.17c0.46,-0.15 0.95,-0.24 1.47,-0.24zM2.71,3.16L1.39,4.59 4.1,7.3C2.61,8.55 1.45,10.18 0.73,12c1.73,4.39 6,7.5 11,7.5 1.55,0 3.03,-0.3 4.38,-0.84l3.31,3.31 1.41,-1.41L2.71,3.16zM12,17c-2.76,0 -5,-2.24 -5,-5 0,-0.65 0.13,-1.26 0.36,-1.83l1.59,1.59c-0.05,0.18 -0.08,0.37 -0.08,0.57 0,1.66 1.34,3 3,3 0.2,0 0.39,-0.03 0.57,-0.08l1.59,1.59C13.26,16.87 12.65,17 12,17z" />
+</vector>

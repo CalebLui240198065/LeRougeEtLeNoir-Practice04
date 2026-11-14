@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Side selectors sit above the custom board and the duel controls sit below it. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ink">
+
+    <ScrollView
+        android:id="@+id/contentRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_paper"
+        android:clipToPadding="true"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="14dp">
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    style="@style/Widget.RougeNoir.IconButton.Dark"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:contentDescription="@string/back"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/cream" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/nunito_bold"
+                        android:letterSpacing="0.16"
+                        android:text="@string/ttt_eyebrow"
+                        android:textColor="@color/gold_light"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/cormorant_semibold"
+                        android:includeFontPadding="false"
+                        android:text="@string/ttt_title"
+                        android:textColor="@color/cream"
+                        android:textSize="33sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/nunito_regular"
+                        android:text="@string/ttt_subtitle"
+                        android:textColor="@color/parchment"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:contentDescription="@string/content_description_ttt_art"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/art_three_estates" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="22dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_dot_brown" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        app:fontFamily="@font/nunito_bold"
+                        android:letterSpacing="0.1"
+                        android:text="@string/ttt_talent"
+                        android:textColor="@color/brown"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/tttScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/nunito_semibold"
+                        android:textColor="@color/muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    app:fontFamily="@font/nunito_bold"
+                    android:letterSpacing="0.12"
+                    android:text="@string/ttt_your_rival"
+                    android:textColor="@color/ink"
+                    android:textSize="9sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/armyChip"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_chip_army"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:fontFamily="@font/nunito_bold"
+                        android:gravity="center"
+                        android:letterSpacing="0.1"
+                        android:text="@string/ttt_army"
+                        android:textColor="@color/chip_army_text"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/churchChip"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_chip_church"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:fontFamily="@font/nunito_bold"
+                        android:gravity="center"
+                        android:letterSpacing="0.1"
+                        android:text="@string/ttt_church"
+                        android:textColor="@color/chip_church_text"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tttStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_outline_pill"
+                    app:fontFamily="@font/cormorant_semibold"
+                    android:gravity="center"
+                    android:minHeight="44dp"
+                    android:paddingStart="12dp"
+                    android:paddingTop="7dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="7dp"
+                    android:textColor="@color/ink"
+                    android:textSize="18sp" />
+
+                <com.rougenoir.app.ui.view.TicTacToeBoardView
+                    android:id="@+id/tttBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_board_frame"
+                    android:contentDescription="@string/ttt_board_description"
+                    android:elevation="3dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:fontFamily="@font/nunito_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="1dp"
+                    android:text="@string/ttt_hint"
+                    android:textColor="@color/muted"
+                    android:textSize="10sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/newDuelButton"
+                    style="@style/Widget.RougeNoir.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/ttt_new_duel" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    app:fontFamily="@font/cormorant_semibold"
+                    android:gravity="center"
+                    android:text="@string/ttt_footer"
+                    android:textColor="@color/brown"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

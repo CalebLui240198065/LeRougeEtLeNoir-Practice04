@@ -1,0 +1,4 @@
+# Keep the Gradle launchers compatible with their respective shells.
+* text=auto
+gradlew text eol=lf
+*.bat text eol=crlf

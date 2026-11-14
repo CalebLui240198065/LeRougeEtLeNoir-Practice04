@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Use the red button for the action that advances the current game. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/parchment_20">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/red" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+</ripple>

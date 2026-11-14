@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The gold badge provides a light backdrop for small card labels. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/gold_light" />
+    <corners android:radius="7dp" />
+</shape>

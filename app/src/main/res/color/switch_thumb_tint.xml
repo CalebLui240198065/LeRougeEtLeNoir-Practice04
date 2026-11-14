@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The thumb color tracks the checked state of the Study switches. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/brown" android:state_checked="true" />
+    <item android:color="@color/cream" />
+</selector>

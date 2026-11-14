@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared typography, widgets, and themes for the salon's XML layouts. -->
+<resources>
+    <style name="TextAppearance.RougeNoir.Display" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/cormorant_semibold</item>
+        <item name="fontFamily">@font/cormorant_semibold</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:lineSpacingMultiplier">0.92</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.DisplaySmall" parent="TextAppearance.RougeNoir.Display">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.Title" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/cormorant_semibold</item>
+        <item name="fontFamily">@font/cormorant_semibold</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">0.95</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.Eyebrow" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.16</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.Label" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.09</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.Body" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="fontFamily">@font/nunito_regular</item>
+        <item name="android:textColor">@color/ink_muted</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.BodySmall" parent="TextAppearance.RougeNoir.Body">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.Caption" parent="TextAppearance.RougeNoir.BodySmall">
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="TextAppearance.RougeNoir.Button" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+        <item name="android:textColor">@color/cream</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/bg_button_ink</item>
+        <item name="android:textAppearance">@style/TextAppearance.RougeNoir.Button</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Button.Red">
+        <item name="android:background">@drawable/bg_button_red</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Button.Outline">
+        <item name="android:background">@drawable/bg_button_outline</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Button.OutlineLight">
+        <item name="android:background">@drawable/bg_button_outline_light</item>
+        <item name="android:textColor">@color/cream</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Button.Small" parent="Widget.RougeNoir.Button">
+        <item name="android:minHeight">42dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Widget.RougeNoir.IconButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/bg_icon_button</item>
+        <item name="android:minWidth">@dimen/icon_button</item>
+        <item name="android:minHeight">@dimen/icon_button</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="Widget.RougeNoir.IconButton.Dark">
+        <item name="android:background">@drawable/bg_icon_button_dark</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Input" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:fontFamily">@font/nunito_semibold</item>
+        <item name="fontFamily">@font/nunito_semibold</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textColorHint">@color/muted_light</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">54dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_brown</item>
+    </style>
+
+    <style name="Widget.RougeNoir.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:colorControlActivated">@color/brown</item>
+        <item name="colorControlActivated">@color/brown</item>
+        <item name="thumbTint">@color/switch_thumb_tint</item>
+        <item name="trackTint">@color/switch_track_tint</item>
+    </style>
+
+    <style name="Widget.RougeNoir.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:buttonTint">@color/brown</item>
+        <item name="android:fontFamily">@font/nunito_semibold</item>
+        <item name="fontFamily">@font/nunito_semibold</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Theme.RougeNoir" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/ink</item>
+        <item name="colorAccent">@color/brown</item>
+        <item name="android:windowBackground">@drawable/bg_paper</item>
+        <item name="android:colorBackground">@color/parchment</item>
+        <item name="android:statusBarColor">@color/ink</item>
+        <item name="android:navigationBarColor">@color/ink</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="fontFamily">@font/nunito_regular</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:colorEdgeEffect">@color/brown</item>
+    </style>
+
+    <style name="Theme.RougeNoir.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/red</item>
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="fontFamily">@font/nunito_regular</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.55</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowMinWidthMajor">88%</item>
+        <item name="android:windowMinWidthMinor">88%</item>
+    </style>
+
+    <style name="Theme.RougeNoir.Transparent" parent="Theme.RougeNoir">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

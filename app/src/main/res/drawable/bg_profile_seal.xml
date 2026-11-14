@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The circular seal frames the signed-in player's initial in the menu. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:endColor="@color/red_dark"
+        android:startColor="@color/red"
+        android:type="linear"
+        android:angle="315" />
+    <stroke
+        android:width="2dp"
+        android:color="@color/gold" />
+</shape>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The selector switches the Church chip to its ink filled state when chosen. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/black_soft" />
+            <corners android:radius="15dp" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/ink" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/cream" />
+            <corners android:radius="15dp" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/line" />
+        </shape>
+    </item>
+</selector>

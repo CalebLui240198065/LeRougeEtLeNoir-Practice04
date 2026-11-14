@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gold is the winning line, red marks the card, and outlined cream can be tapped. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true">
+        <shape>
+            <corners android:radius="10dp" />
+            <solid android:color="@color/gold" />
+        </shape>
+    </item>
+    <item android:state_selected="true">
+        <shape>
+            <corners android:radius="10dp" />
+            <solid android:color="@color/red_dark" />
+        </shape>
+    </item>
+    <item android:state_enabled="true">
+        <ripple android:color="@color/red_pale">
+            <item>
+                <shape>
+                    <corners android:radius="10dp" />
+                    <solid android:color="@color/cream" />
+                    <stroke android:width="2dp" android:color="@color/red" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+    <item>
+        <shape>
+            <corners android:radius="10dp" />
+            <solid android:color="@color/parchment_deep" />
+        </shape>
+    </item>
+</selector>

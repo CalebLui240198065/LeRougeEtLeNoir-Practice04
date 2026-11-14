@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Scroll the board and controls together on short screens or at large text sizes. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ink">
+
+    <ScrollView
+        android:id="@+id/contentRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_paper"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp">
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    style="@style/Widget.RougeNoir.IconButton.Dark"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/cream" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/bingo_title"
+                    android:textAppearance="@style/TextAppearance.RougeNoir.DisplaySmall"
+                    android:textColor="@color/cream" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bingoHistoryButton"
+                    style="@style/Widget.RougeNoir.Button.OutlineLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="@string/bingo_history" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <!-- Keep the newest call prominent while earlier calls stay playable on the card. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bingo_latest_draw"
+                            android:textAppearance="@style/TextAppearance.RougeNoir.Eyebrow" />
+
+                        <TextView
+                            android:id="@+id/bingoProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textAppearance="@style/TextAppearance.RougeNoir.Body" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/bingoDrawNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:accessibilityLiveRegion="polite"
+                        android:background="@drawable/bg_art_well_gold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:minWidth="64dp"
+                        android:minHeight="50dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:textAppearance="@style/TextAppearance.RougeNoir.DisplaySmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_board_frame"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:text="@string/bingo_card_heading"
+                        android:textAppearance="@style/TextAppearance.RougeNoir.Label"
+                        android:textColor="@color/brown_dark" />
+
+                    <!-- BingoActivity inserts five rows of actual buttons. -->
+                    <LinearLayout
+                        android:id="@+id/bingoCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/bingoStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:accessibilityLiveRegion="polite"
+                    android:textAppearance="@style/TextAppearance.RougeNoir.Body" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bingoAction"
+                    style="@style/Widget.RougeNoir.Button.Red"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/bingo_draw" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
